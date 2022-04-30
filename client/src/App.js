@@ -24,4 +24,5 @@ const imprimirResultados = (e) => {
   console.log(document.getElementById('exampleInputEmail1').value);
   console.log(document.getElementById('exampleInputPassword1').value);
 }
+
 export default App;
