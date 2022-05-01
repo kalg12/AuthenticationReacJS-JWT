@@ -1,13 +1,17 @@
-//importamos el modulo express y jsonwebtoken
+//importamos el modulo express, jsonwebtoken y cors
 const express = require("express")
 const app = express()
 const jwt = require("jsonwebtoken")
+const cors = require("cors")
 
 //definimos el puerto en una variable
 const port = 4000
 
 //agregamos el middleware para que express interprete los datos que llegan en formato json
 app.use(express.json())
+
+//ejecutamos cors
+app.use(cors())
 
 //creamos las rutas para los metodos get y post
 
@@ -21,8 +25,8 @@ app.get("/api", (req, res) => {
 app.post("/api/login", (req, res) => {
     const user = {
         id: 1,
-        nombre: "Kevin",
-        email: "luciano19940@hotmail.com"
+        user: "Kevin",
+        password: 123456
     }
 
     jwt.sign({user}, 'secretkey', { expiresIn: '30s' }, (err, token) =>{
